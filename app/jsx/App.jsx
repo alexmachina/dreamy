@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory, Link} from 'react-router';
-import {ProductsPanel} from './products/ProductsPanel.jsx';
+import {DreamTable} from './dreams/DreamTable.jsx';
+import {DreamForm} from './dreams/DreamForm.jsx';
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <h1>App</h1>
-        <h1><Link to="/products">Products</Link></h1>
+        <h1><Link to="/dreams">Dreams</Link></h1>
         {this.props.children}
       </div>
     )
@@ -18,7 +19,8 @@ class App extends React.Component {
 const rt = (
   <Router history={hashHistory}>
     <Route path="/" component={App} >
-      <Route path="/products" component={ProductsPanel}></Route>
+      <Route path="/dreams" component={DreamTable}></Route>
+      <Route path="/dream/:id" component={DreamForm}></Route>
     </Route>
   </Router>
 )
